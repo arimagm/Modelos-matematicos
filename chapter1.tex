@@ -512,7 +512,24 @@ Por lo tanto, la norma de $\mathbf{w}$ es $\sqrt{10}$.
 Dado el vector $\mathbf{U} = \begin{pmatrix} 2 \\ -1 \\ 3 \\ -2 \\ 4 \end{pmatrix}$ en $\mathbb{R}^5$. Calcula la norma de $\mathbf{U}$.
 \end{exercise}
 \subsection{Práctica con R}
-\begin{}
+\begin{verbatim}
+# Definir el vector y el escalar
+v <- c(3, -4, 5)
+alpha <- 2
+
+# Calcular la norma de alpha * v
+norma_alpha_v <- sqrt(sum((alpha * v)^2))
+
+# Calcular |alpha| * norma_v
+norma_alpha <- abs(alpha) * sqrt(sum(v^2))
+
+# Verificar si son iguales
+if (norma_alpha_v == norma_alpha) {
+  print("La propiedad de homogeneidad positiva se cumple para el vector v y el escalar alpha.")
+} else {
+  print("La propiedad de homogeneidad positiva NO se cumple para el vector v y el escalar alpha.")
+}    
+\end{verbatim}
 \begin{definition}
  Los vectores $\mathbf{U}$ y $\mathbf{V}$ diferentes de cero son ortogonales (o perpendiculares) si el ángulo entre ellos es $\frac{\pi}{2}$.
 \end{definition}
