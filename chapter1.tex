@@ -1,0 +1,1853 @@
+\chapter{Álgebra de matrices y vectores}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vectores} 
+
+%\textcolor{red}{Carlos, para la redacción de este capítulo apóyese del Johnson. capítulo 2: Matrix Algebra and Random Vectors}
+\begin{definition}[Vector]
+Un vector $\boldsymbol{V}$ en el plano $xy$ es un par ordenado de números reales $(a, b)$. Los números $a$ y $b$ se denominan elementos o componentes del vector $\boldsymbol{V}$. El vector cero es el vector $(0, 0)$.
+
+\end{definition}
+\begin{definition}
+Un conjunto $x$ de $n$ números reales $x_1, x_2, \ldots, x_n$ se llama un vector, y se escribe como:\\
+  \[
+\boldsymbol{A} = \begin{pmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{pmatrix}
+\quad
+\text{ó}
+\quad
+\boldsymbol{A}^\top = [x_1, x_2, \ldots, x_n]
+\]
+
+\end{definition}
+\begin{definition}
+Un vector fila de $n$ componentes se define como un conjunto ordenado de $n$ números escritos de la siguiente manera: $$(x_1, x_2, \ldots, x_n)$$.    
+\end{definition}
+\begin{definition}
+Un vector columna de $n$ componentes es un conjunto ordenado de $n$ números escritos de la siguiente manera:
+\[
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{pmatrix}
+\]  
+\end{definition}
+A continuación se muestran las propiedades de los vectores:\\
+
+\begin{enumerate}
+    \item  \text{Suma de vectores:} $\quad \mathbf{V} + \mathbf{W} = \mathbf{W} + \mathbf{V} $\\
+\item  \text{Multiplicación por un escalar:} $\quad c(\mathbf{V} + \mathbf{W}) = c\mathbf{V} + c\mathbf{W}$ \\
+\item  \text{Distributiva de la suma de escalares:} $\quad (a + b)\mathbf{V} = a\mathbf{V} + b\mathbf{V}$ \\
+\item  \text{Producto punto:}$ \quad \mathbf{u} \cdot \mathbf{V} = \sum_{i=1}^{n} u_iv_i $\\
+\item  \text{Producto cruz:} $\quad \mathbf{V} \times \mathbf{W} = \begin{pmatrix} v_2 w_3 - v_3 w_2 \\ v_3 w_1 - v_1 w_3 \\ v_1 w_2 - v_2 w_1 \end{pmatrix} $\\
+\item  \text{Norma o módulo de un vector:} $\quad \|\mathbf{V}\| = \sqrt{v_1^2 + v_2^2 + \ldots + v_n^2}$ \\
+\item   \text{Vectores ortogonales:} $\quad \mathbf{V} \perp \mathbf{W} \quad \text{si} \quad \mathbf{V} \cdot \mathbf{W} = 0$
+\end{enumerate}
+
+
+%----------------------------------------------
+\subsection{Resolución de problemas}
+
+%----------------------------------------------
+\begin{example}
+   La suma de dos vectores en un espacio euclidiano se realiza sumando componente por componente. Si tienes dos vectores $\mathbf{U}$ y $\mathbf{V}$ dados por:
+
+\[
+\boldsymbol{U} = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{pmatrix} \quad \text{y} \quad \boldsymbol{V} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}
+\]
+
+entonces la suma de estos vectores, denotada como $\mathbf{U} + \mathbf{V}$, se calcula sumando sus componentes correspondientes:
+
+\[
+\boldsymbol{U} + \boldsymbol{V} = \begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{pmatrix}
+\]
+\end{example}
+\begin{example}
+    Consideremos dos vectores en \( \mathbb{R}^3 \):
+\[
+\boldsymbol{U} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix} \quad \text{y} \quad \boldsymbol{V} = \begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix}
+\]
+
+La suma de estos vectores es:
+\[
+\boldsymbol{U} + \boldsymbol{V} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix} + \begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 + (-3) \\ (-1) + 2 \\ 3 + 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \\ 4 \end{pmatrix}
+\]
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+    Consideremos dos vectores \( \mathbf{U} = \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} \) y \( \mathbf{V} = \begin{pmatrix} -2 \\ 4 \\ 1 \end{pmatrix} \). La resta de \( \mathbf{U} \) por \( \mathbf{V} \) es:
+
+\[
+\boldsymbol{U} - \boldsymbol{V} = \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} - \begin{pmatrix} -2 \\ 4 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - (-2) \\ -1 - 4 \\ 2 - 1 \end{pmatrix} = \begin{pmatrix} 5 \\ -5 \\ 1 \end{pmatrix}
+\]
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+Dado el vector \( \mathbf{V} = \begin{pmatrix} 3 \\ -2 \\ 5 \end{pmatrix} \) y el vector \( \mathbf{U} = \begin{pmatrix} -1 \\ 4 \\ 2 \end{pmatrix} \), calcula \( \mathbf{V} + \mathbf{U} \).
+\end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+Sean \( \mathbf{A} = \begin{pmatrix} 2 \\ 1 \end{pmatrix} \) y \( \mathbf{B} = \begin{pmatrix} -3 \\ 5 \end{pmatrix} \) dos vectores en \( \mathbb{R}^2 \). Calcula \( \mathbf{A} - \mathbf{B} \).
+\end{exercise}
+\subsection{Practica con R}
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  # Definir dos vectores
+v1 <- c(1, 2, 3)
+v2 <- c(4, 5, 6)
+
+# Sumar los vectores
+suma <- v1 + v2
+
+# Mostrar el resultado
+print(suma)  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+ # Definir los vectores columna
+U <- c(1, 2, 3)
+V <- c(4, 5, 6)
+
+# Calcular la resta de los vectores
+resultado <- U - V
+
+# Mostrar el resultado
+print("Resultado de la resta de los vectores:")
+print(resultado)  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+# Definir un vector de lógicos y un vector de enteros
+v_logico <- c(TRUE, FALSE, TRUE)
+v_entero <- c(1, 0, 1)
+
+# Sumar los vectores
+suma <- v_logico + v_entero
+
+# Mostrar el resultado
+print(suma)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+Sea \( \mathbf{V} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix} \) un vector en \( \mathbb{R}^n \) y \( k \) un escalar. La multiplicación de \( \mathbf{V} \) por \( k \) se calcula como:
+
+\[
+k \boldsymbol{V} = k \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix} = \begin{pmatrix} k v_1 \\ k v_2 \\ \vdots \\ k v_n \end{pmatrix}
+\]
+\end{definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+Sea el vector \( \mathbf{V} = \begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix} \) y el escalar \( k = 3 \). La multiplicación de \( \mathbf{V} \) por \( k \) es:
+
+\[
+k \boldsymbol{V} = 3 \begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 \cdot 2 \\ 3 \cdot (-3) \\ 3 \cdot 1 \end{pmatrix} = \begin{pmatrix} 6 \\ -9 \\ 3 \end{pmatrix}
+\]
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+    Consideremos el vector fila \( \mathbf{V} = (1, 2, 3) \) y el escalar \( k = 2 \). La multiplicación de \( \mathbf{V} \) por \( k \) es:
+
+\[
+k \boldsymbol{V} = 2 (1, 2, 3) = (2 \cdot 1, 2 \cdot 2, 2 \cdot 3) = (2, 4, 6)
+\]
+
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+ Sea $\mathbf{A}=\left(\begin{array}{l}4 \\ 6 \\ 1 \\ 3\end{array}\right) \quad y \quad \mathbf{B}=\left(\begin{array}{r}-2 \\ 4 \\ -3 \\ 0\end{array}\right)$. Calcule $2 \mathbf{A}-3 \mathbf{B}$.   
+\end{exercise}
+\begin{solution}
+     Solución $2 \mathbf{A}-3 \mathbf{B}=2\left(\begin{array}{l}4 \\ 6 \\ 1 \\ 3\end{array}\right)+(-3)\left(\begin{array}{r}-2 \\ 4 \\ -3 \\ 0\end{array}\right)=\left(\begin{array}{r}8 \\ 12 \\ 2 \\ 6\end{array}\right)+\left(\begin{array}{r}6 \\ -12 \\ 9 \\ 0\end{array}\right)=\left(\begin{array}{r}14 \\ 0 \\ 11 \\ 6\end{array}\right)$
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+Dado el vector \( \mathbf{W} = \begin{pmatrix} -1 \\ 3 \\ 0 \end{pmatrix} \), encuentra \( \frac{1}{2} \mathbf{W} \).
+\end{exercise}
+
+\begin{exercise}
+Sean \( \mathbf{C} = \begin{pmatrix} 1 \\ 0 \\ -2 \end{pmatrix} \) y \( \mathbf{D} = \begin{pmatrix} 4 \\ -3 \\ 1 \end{pmatrix} \) dos vectores en \( \mathbb{R}^3 \). Calcula el producto escalar \( \mathbf{C} \cdot \mathbf{D} \).
+\end{exercise}
+\subsection{Práctica con R}
+Los vectores de datos $x$ y $y$, se pueden concatenar por columnas con la función  \textit{cbind()}; y  por renglones con
+la función \textit{rbind()}.
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Los vectores de datos $x$ y $y$, Por renglones (filas)
+      A<-rbind(x, y)
+      A
+# La función \textit{matrix()} genera una matriz; el número de columnas y 
+renglones (filas) de la matriz se indican con los argumentos \textit{ncol}
+y\textbf{nrow}, respectivamente.
+      x <- c(2, 7, 3, 6, 1)
+      y <- c(3, 7, 3, 5, 9)
+
+      # Creando la matriz
+      A<-matrix(c(x,y), nrow = 5, ncol = 2)
+      A
+#La dimensión de la matriz $A$, está dada por:
+       dim(A)
+# Usando \texttt{byrow = TRUE}: Esto indica que los elementos de la matriz 
+se llenarán por filas. Es decir, la primera fila se llenará primero, luego
+la segunda fila y así sucesivamente.
+
+# Usando \texttt{ncol =}: Esto indica el número de columnas de la matriz. 
+Si utilizas \texttt{ncol =} en lugar de \texttt{byrow = TRUE}, se llenará 
+la matriz por columnas en lugar de por filas.
+
+# Para determinar de qué clase es el objeto que se definió se usa la función
+\textit{class()}:
+      class(A)
+
+Dimensión de la matriz $A$: 
+      dim(A) 
+
+      x <- c(2, 7, 3, 6, 1)
+      y <- c(3, 7, 3, 5, 9)
+
+      # Por columnas
+      A<-cbind(x, y)
+      A
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+# Definir la matriz original
+A <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE)
+print("Matriz original:")
+print(A)
+
+# Definir el escalar
+escalar <- 3
+
+# Multiplicar la matriz por el escalar
+resultado <- escalar * A
+
+# Mostrar el resultado
+print("Matriz resultante después de la multiplicación por el escalar:")
+print(resultado)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+# Definir los vectores A y B
+A <- c(1, 2, 3)
+B <- c(4, 5, 6)
+
+# Definir el escalar fraccionado y el escalar entero
+escalar_fraccionado <- 3/2
+escalar_entero <- 2
+
+# Calcular la operación
+resultado <- escalar_fraccionado * A - escalar_entero * B
+
+# Mostrar el resultado
+print("Resultado de la operación:")
+print(resultado)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+El producto punto o producto escalar de dos vectores $\mathbf{U} = (u_1, u_2, u_3)$ y $\mathbf{V} = (v_1, v_2, v_3)$ se denota como $\mathbf{U} \cdot \mathbf{V}$.
+    \[
+\boldsymbol{U} \cdot \boldsymbol{V} = u_1 v_1 + u_2 v_2 + u_3 v_3
+\]
+Dado el vector fila \( \mathbf{U} = [u_1, u_2, u_3] \) y el vector columna \( \mathbf{V} = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} \), el producto escalar \( \mathbf{U} \cdot \mathbf{V} \) se calcula como:
+
+\[
+\boldsymbol{U} \cdot \boldsymbol{V} = [u_1, u_2, u_3] \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} = u_1 v_1 + u_2 v_2 + u_3 v_3
+\]
+\end{definition}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+Sea el vector fila \( \mathbf{U} = [1, 2, 3] \) y el vector columna \( \mathbf{V} = \begin{pmatrix} 4 \\ 5 \\ 6 \end{pmatrix} \). El producto escalar \( \mathbf{U} \cdot \mathbf{V} \) se calcula como:
+
+\[
+\boldsymbol{U} \cdot \boldsymbol{V} = [1, 2, 3] \begin{pmatrix} 4 \\ 5 \\ 6 \end{pmatrix} = 1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 4 + 10 + 18 = 32
+\]    
+\end{example}
+%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+Supongamos el vector fila \( \mathbf{A} = [2, -1, 3] \) y el vector columna \( \mathbf{B} = \begin{pmatrix} -1 \\ 2 \\ 4 \end{pmatrix} \). El producto escalar \( \mathbf{A} \cdot \mathbf{B} \) se obtiene como:
+
+\[
+\mathbf{A} \cdot \mathbf{B} = [2, -1, 3] \begin{pmatrix} -1 \\ 2 \\ 4 \end{pmatrix} = 2 \cdot (-1) + (-1) \cdot 2 + 3 \cdot 4 = -2 - 2 + 12 = 8
+\]
+
+\end{example}
+%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}[colback=white!5!white,colframe=red!50!red,title=Teorema]
+Sean $\mathbf{A}$, $\mathbf{B}$ y $\mathbf{C}$ tres vectores de dimensión \(n\) y sea \(a\) un escalar. Entonces:
+\begin{enumerate}
+    \item \( \mathbf{A} \cdot \mathbf{0} = 0 \)
+    \item \( \mathbf{A} \cdot \mathbf{B} = \mathbf{B} \cdot \mathbf{A} \) (ley conmutativa del producto escalar)
+    \item \( \mathbf{A} \cdot (\mathbf{B} + \mathbf{C}) = \mathbf{A} \cdot \mathbf{B} + \mathbf{A} \cdot \mathbf{C} \) (ley distributiva del producto escalar)
+    \item \( (\alpha \cdot \mathbf{A}) \cdot \mathbf{B} = \alpha \cdot (\mathbf{A} \cdot \mathbf{B}) \)
+\end{enumerate}
+\end{tcolorbox}
+\begin{remark}
+Observe que no existe una ley asociativa para el producto escalar. La expresión $(A\cdot B) \cdot C =
+A\cdot(B\cdot C) $ no tiene sentido porque ninguno de los dos lados de la ecuación está definido.   
+\end{remark}
+\begin{exercise}
+ Dado el vector fila \( \mathbf{A} = [\mathbf{1}, \mathbf{-2}, \mathbf{3}] \) y el vector columna \( \mathbf{B} = \begin{pmatrix} \mathbf{4} \\ \mathbf{5} \\ \mathbf{6} \end{pmatrix} \), calcular \( \mathbf{A} \cdot \mathbf{B} \)  
+\end{exercise}
+
+\begin{exercise}
+Sean \( \mathbf{U} = [\mathbf{2}, \mathbf{1}, \mathbf{-3}] \) y \( \mathbf{V} = \begin{pmatrix} \mathbf{-1} \\ \mathbf{0} \\ \mathbf{2} \end{pmatrix} \) dos vectores. Encuentra \( \mathbf{U} \cdot \mathbf{V} \) 
+\end{exercise}
+\begin{exercise}
+Dado el vector fila \( \mathbf{X} = [\mathbf{1}, \mathbf{2}] \) y el vector columna \( \mathbf{Y} = \begin{pmatrix} \mathbf{-3} \\ \mathbf{4} \end{pmatrix} \), calcular \( \mathbf{X} \cdot \mathbf{Y} \)  
+\end{exercise}
+\subsection{Práctica con R}
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ # Definir los vectores
+v1 <- c(1, 2, 3)
+v2 <- c(4, 5, 6)
+
+# Calcular el producto punto
+producto_punto <- sum(v1 * v2)
+
+# Mostrar el resultado
+print(paste("El producto punto de", v1, "y", v2, "es:", producto_punto))  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+
+# Definir un vector columna y un vector fila
+vector_columna <- matrix(c(1, 2, 3), ncol = 1)
+vector_fila <- c(4, 5, 6)
+
+# Calcular el producto punto
+producto_punto <- sum(vector_columna * vector_fila)
+
+# Mostrar el resultado
+print(paste("El producto punto entre el vector columna y el vector fila es:
+", producto_punto))    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+# Definir dos vectores
+u <- c(1, 2, 3)
+v <- c(4, 5, 6)
+
+# Definir un escalar
+c <- 2
+
+# Calcular el producto escalar del lado izquierdo de la ecuación
+izquierda <- c * (u + v)
+
+# Calcular el producto escalar del lado derecho de la ecuación
+derecha <- c * u + c * v
+
+# Mostrar los resultados
+print("Lado izquierdo de la ecuación:")
+print(izquierda)
+print("Lado derecho de la ecuación:")
+print(derecha)
+
+# Comprobar si los resultados son iguales
+if(all.equal(izquierda, derecha)) {
+  print("La ley distributiva del producto escalar se cumple.")
+} else {
+  print("La ley distributiva del producto escalar NO se cumple.")
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\end{verbatim}
+\begin{verbatim}
+    # Definir tres vectores
+A <- c(1, 2, 3)
+B <- c(4, 5, 6)
+C <- c(7, 8, 9)
+
+# Calcular el lado izquierdo de la ecuación
+lado_izquierdo <- sum(A * (B + C))
+
+# Calcular el lado derecho de la ecuación
+lado_derecho <- sum(A * B) + sum(A * C)
+
+# Mostrar los resultados
+print("Lado izquierdo de la ecuación:")
+print(lado_izquierdo)
+print("Lado derecho de la ecuación:")
+print(lado_derecho)
+
+# Comprobar si los resultados son iguales
+if(lado_izquierdo == lado_derecho) {
+  print("La ley distributiva del producto escalar se cumple.")
+} else {
+  print("La ley distributiva del producto escalar NO se cumple.")
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%5
+\begin{definition}
+Dados los vectores $\mathbf{U} = (a, b, c)$ y $\mathbf{V} = (a_1, b_1, c_1)$, se define el producto cruz o producto vectorial de $\mathbf{U}$ y $\mathbf{V}$ como $\mathbf{U} \times \mathbf{V}$:=$(bc_1 - b_1 c, a_1 c - a c_1, ab_1 - a_1 b)$.    
+\end{definition}
+
+Algunas propiedades del producto cruz se muestran a continuación.
+\begin{itemize}
+   
+\item \textbf{Anticonmutatividad}: $\mathbf{u} \times \mathbf{v} =-(\mathbf{v} \times \mathbf{u})$.
+
+\item \textbf{Distributividad con respecto a la suma}: $\mathbf{u} \times (\mathbf{v} + \mathbf{w}) = \mathbf{u} \times \mathbf{v} + \mathbf{u} \times \mathbf{w}$.
+
+\item \textbf{No es asociativo}: $(\mathbf{u} \times \mathbf{v}) \times \mathbf{w} \neq \mathbf{u} \times (\mathbf{v} \times \mathbf{w})$.
+
+\item \textbf{El producto cruz de dos vectores paralelos es cero}: Si $\mathbf{u}$ y $\mathbf{v}$ son paralelos o antiparalelos, entonces $\mathbf{u} \times \mathbf{v} = \mathbf{0}$.
+
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+Dados los vectores $\mathbf{U} = \begin{pmatrix} \boldsymbol{2} \\ \boldsymbol{-1} \\ \boldsymbol{3} \end{pmatrix}$ y $\mathbf{V} = \begin{pmatrix} \boldsymbol{1} \\ \boldsymbol{4} \\ \boldsymbol{-2} \end{pmatrix}$, demostraremos la propiedad de anticonmutatividad del producto cruz.
+
+Calculamos $\mathbf{U} \times \mathbf{V}$:
+\[
+\mathbf{U} \times \mathbf{V} = \begin{pmatrix} -1( -2 ) - 3( 4 ) \\ 3( 1 ) - 2( -2 ) \\ 2( 4 ) - (-1)( 1 ) \end{pmatrix} = \begin{pmatrix} -10 \\ 7 \\ 9 \end{pmatrix}
+\]
+
+Ahora calculamos $\mathbf{V} \times \mathbf{U}$:
+\[ \begin{pmatrix}
+(4 \times 3) - (-2 \times (-1)) \\
+(-2 \times 2) - (1 \times 3) \\
+(1 \times (-1)) - (4 \times 2)
+\end{pmatrix} = \begin{pmatrix} 10 \\ -7 \\ -9 \end{pmatrix}
+\]
+
+Como $\mathbf{U} \times \mathbf{V} = \begin{pmatrix} -10 \\ 7 \\ 9 \end{pmatrix}$ y $\mathbf{V} \times \mathbf{U} = \begin{pmatrix} 10 \\ -7 \\ -9 \end{pmatrix}$ son opuestos, se cumple la propiedad de anticonmutatividad.
+
+\end{example}
+%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+Dados los vectores $\mathbf{U} = \begin{pmatrix} \boldsymbol{2} \\ \boldsymbol{1} \\ \boldsymbol{-3} \end{pmatrix}$, $\mathbf{V} = \begin{pmatrix} \boldsymbol{-1} \\ \boldsymbol{0} \\ \boldsymbol{2} \end{pmatrix}$ y $\mathbf{W} = \begin{pmatrix} \boldsymbol{3} \\ \boldsymbol{4} \\ \boldsymbol{-1} \end{pmatrix}$, demostraremos la propiedad de distributividad con respecto a la suma del producto cruz.
+
+Calculamos $\mathbf{U} \times (\mathbf{V} + \mathbf{W})$:
+\[
+\mathbf{U} \times (\mathbf{V} + \mathbf{W}) = \mathbf{U} \times \begin{pmatrix} -1+3 \\ 0+4 \\ 2-1 \end{pmatrix} = \mathbf{U} \times \begin{pmatrix} \boldsymbol{2} \\ \boldsymbol{4} \\ \boldsymbol{1} \end{pmatrix} = \begin{pmatrix} (1)(1) - (-3)(4) \\ (-3)(2) - (2)(1) \\ (2)(4) - (1)(1) \end{pmatrix} = \begin{pmatrix} 13 \\ -8 \\ 7 \end{pmatrix}
+\]
+
+Ahora calculamos $\mathbf{U} \times \mathbf{V} + \mathbf{U} \times \mathbf{W}$:
+\[
+\mathbf{U} \times \mathbf{V} + \mathbf{U} \times \mathbf{W} = \begin{pmatrix} (1)(0) - (-3)(2) \\ (-3)(-1) - (2)(3) \\ (2)(4) - (1)(-1) \end{pmatrix} + \begin{pmatrix} (1)(4) - (-3)(-1) \\ (-3)(3) - (2)(-3) \\ (2)(-1) - (1)(4) \end{pmatrix} = \begin{pmatrix} 6 \\ -13 \\ 9 \end{pmatrix} + \begin{pmatrix} 7 \\ -5 \\ -6 \end{pmatrix} = \begin{pmatrix} 13 \\ -8 \\ 7 \end{pmatrix}\]
+\end{example}
+\begin{exercise}
+ Demostrar que : $(\mathbf{u} \times \mathbf{v}) \times \mathbf{w} \neq \mathbf{u} \times (\mathbf{v} \times \mathbf{w})$.   
+\end{exercise}
+\begin{exercise}
+ Demostrar que si $\mathbf{u}$ y $\mathbf{v}$ son paralelos o antiparalelos, entonces $\mathbf{u} \times \mathbf{v} = \mathbf{0}$.
+\end{exercise}
+\subsection{Práctica con R}
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   # Definir los vectores tridimensionales U y V
+U <- c(2, -1, 3)
+V <- c(1, 4, -2)
+
+# Calcular el producto cruz UV
+producto_cruz <- c(U[2] * V[3] - U[3] * V[2],
+                   U[3] * V[1] - U[1] * V[3],
+                   U[1] * V[2] - U[2] * V[1])
+
+# Mostrar el resultado
+print(producto_cruz)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+ # Definir los vectores tridimensionales U y V
+U <- c(2, -1, 3)
+V <- c(1, 4, -2)
+
+# Calcular el producto cruz VU
+producto_cruz_VU <- c(V[2] * U[3] - V[3] * U[2],
+                      V[3] * U[1] - V[1] * U[3],
+                      V[1] * U[2] - V[2] * U[1])
+
+# Mostrar el resultado
+print(producto_cruz_VU)   
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+La norma de un vector es una medida de su longitud o magnitud en un espacio vectorial. En términos generales, la norma de un vector $\mathbf{v}$ se define como una función que asigna a cada vector un número no negativo. Formalmente, para un vector $\mathbf{v}$ en un espacio vectorial $V$ sobre un campo escalar $F$, la norma de $\mathbf{v}$, denotada como $\|\mathbf{v}\|$, cumple con las siguientes propiedades:
+
+\begin{enumerate}
+    \item \textbf{No negatividad}: $\|\mathbf{v}\| \geq 0$, y $\|\mathbf{v}\| = 0$ si y solo si $\mathbf{v} = \mathbf{0}$, el vector cero.
+    \item \textbf{Homogeneidad positiva}: Para todo escalar $\alpha$ en $F$, $\|\alpha \mathbf{v}\| = |\alpha| \|\mathbf{v}\|$.
+    \item \textbf{Desigualdad triangular}: Para cualquier par de vectores $\mathbf{v}$ y $\mathbf{w}$ en $V$, $\|\mathbf{v} + \mathbf{w}\| \leq \|\mathbf{v}\| + \|\mathbf{w}\|$.
+\end{enumerate}
+
+Estas propiedades aseguran que la norma de un vector cumple con las propiedades básicas de una medida de distancia o magnitud en un espacio vectorial. La norma también se puede generalizar a espacios vectoriales de cualquier dimensión. En el caso de vectores tridimensionales en el espacio tridimensional $\mathbb{R}^n$, la norma de un vector $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\\vdots\\ v_n \end{pmatrix}$ se calcula como:
+
+$$\quad \|\mathbf{V}\| = \sqrt{v_1^2 + v_2^2 + \ldots + v_n^2}$$
+
+\end{definition}
+
+\begin{example}
+Sea $\mathbf{v} = \begin{pmatrix} 3 \\ -4 \\ 5 \end{pmatrix}$ un vector en $\mathbb{R}^3$. Calculemos la norma de $\mathbf{v}$:
+
+\[
+\|\mathbf{v}\| = \sqrt{3^2 + (-4)^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2}
+\]
+
+Por lo tanto, la norma de $\mathbf{v}$ es $5\sqrt{2}$.
+    
+\end{example}
+
+\begin{example}
+ Consideremos el vector $\mathbf{w} = \begin{pmatrix} 1 \\ 2 \\ -2 \\ 1 \end{pmatrix}$ en $\mathbb{R}^4$. Vamos a calcular su norma:
+
+\[
+\|\mathbf{w}\| = \sqrt{1^2 + 2^2 + (-2)^2 + 1^2} = \sqrt{1 + 4 + 4 + 1} = \sqrt{10}
+\]
+
+Por lo tanto, la norma de $\mathbf{w}$ es $\sqrt{10}$.   
+\end{example}
+
+\begin{exercise}
+Dado el vector $\mathbf{U} = \begin{pmatrix} 2 \\ -1 \\ 3 \\ -2 \\ 4 \end{pmatrix}$ en $\mathbb{R}^5$. Calcula la norma de $\mathbf{U}$.
+\end{exercise}
+\subsection{Práctica con R}
+\begin{}
+\begin{definition}
+ Los vectores $\mathbf{U}$ y $\mathbf{V}$ diferentes de cero son ortogonales (o perpendiculares) si el ángulo entre ellos es $\frac{\pi}{2}$.
+\end{definition}
+
+\begin{definition}
+    Sean $\mathbf{U}$ y $\mathbf{V}$ dos vectores diferentes de cero. Entonces, el ángulo $\varphi$ entre $\mathbf{U}$ y $\mathbf{V}$ está definido como el ángulo no negativo más pequeño entre las representaciones de $\mathbf{U}$ y $\mathbf{V}$ que tienen el origen como punto inicial. Si $\mathbf{U} = a\mathbf{V}$ para algún escalar $a$, entonces $\varphi = 0$ si $a > 0$ y $\varphi= \pi$ si $a < 0$.
+\end{definition}
+
+\begin{remark}
+Cuando calculamos el producto punto 
+$\boldsymbol{U\cdot V}$, obtenemos la proyección de un vector sobre el otro, multiplicado por la magnitud del segundo vector. Dividiendo esto por el producto de las normas de los vectores nos da la definición de coseno del ángulo entre ellos.
+\end{remark}
+\begin{definition}
+    Dos vectores diferentes de cero $\boldsymbol{U}$ y $\boldsymbol{V}$ son paralelos si el ángulo entre ellos es cero o $\pi$. 
+Observe que los vectores paralelos tienen la misma dirección o direcciones opuestas.
+\end{definition}
+\begin{tcolorbox}[colback=white!5!white,colframe=red!50!red,title=Teorema]
+Sean $\mathbf{u}$ y $\mathbf{v}$ dos vectores diferentes de cero. Si $\varphi$ es el ángulo entre ellos, entonces
+\[
+\cos \varphi
+= \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}
+\]
+\textbf{Demostración}:\\
+La ley de los cosenos establece que en el triángulo de lados a, b y c el cuadrado de cualquier lado  es igual a la suma de los cuadrados de los otros dos lados menos el doble del producto de los otros dos lados y el coseno del ángulo incluido.$$c^2 = a^2 + b^2 - 2ab \cos C$$
+Sea el triángulo con lados $\|\mathbf{U}\|$, $\|\mathbf{V}\|$, y $\|\mathbf{V} -\mathbf{U}\|$ con  puntos iniciales en el origen de manera que $\mathbf{U} = (a_1, b_1)$ y $\mathbf{V} = (a_2, b_2)$. Entonces, de la ley de los cosenos,
+$$
+\|\mathbf{V} - \mathbf{U}\|^2 = \|\mathbf{V}\|^2 + \|\mathbf{U}\|^2 - 2\|\mathbf{U}\|\|\mathbf{V}\|\cos \varphi.
+$$
+no obstante \[
+\|\mathbf{V} - \mathbf{U}\|^2 = (\mathbf{V} - \mathbf{U}) \cdot (\mathbf{V} - \mathbf{U}) = \mathbf{V} \cdot \mathbf{V} - 2\mathbf{U} \cdot \mathbf{V} + \mathbf{U} \cdot \mathbf{U} = \|\mathbf{V}\|^2 - 2\mathbf{U} \cdot \mathbf{V} + \|\mathbf{U}\|^2
+\]
+
+\[ = |\mathbf{V}|^2 - 2\mathbf{U} \cdot \mathbf{V} + |\mathbf{U}|^2 \]
+
+Así, después de restar \(||\mathbf{V}||^2 + ||\mathbf{U}||^2\) en ambos lados de la igualdad, se obtiene \(-2\mathbf{U} \cdot \mathbf{V} = -2||\mathbf{U}|| ||\mathbf{V}|| \cos \varphi\), y el teorema queda demostrado.
+\end{tcolorbox}
+\begin{example}
+ 
+Supongamos que tenemos dos vectores $\boldsymbol{U}$ y $\boldsymbol{V}$ dados por:
+
+\[
+\boldsymbol{U} = (3, 4) \quad \text{y} \quad \boldsymbol{V} = (5, 2)
+\]
+
+Para encontrar el ángulo entre estos dos vectores, primero calculamos el producto punto $\boldsymbol{U} \cdot \boldsymbol{V}$ y las normas $\|\boldsymbol{U}\|$ y $\|\boldsymbol{V}\|$.
+
+El producto punto $\boldsymbol{U} \cdot \boldsymbol{V}$ se calcula como:
+
+\[
+\boldsymbol{U} \cdot \boldsymbol{V} = (3)(5) + (4)(2) = 15 + 8 = 23
+\]
+
+Las normas $\|\boldsymbol{U}\|$ y $\|\boldsymbol{V}\|$ se calculan como:
+
+\[
+\|\boldsymbol{U}\| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5
+\]
+\[
+\|\boldsymbol{V}\| = \sqrt{5^2 + 2^2} = \sqrt{25 + 4} = \sqrt{29}
+\]
+
+Ahora, utilizamos la fórmula del coseno para encontrar el ángulo $w$ entre los dos vectores:
+
+\[
+\cos \varphi = \frac{\boldsymbol{U} \cdot \boldsymbol{V}}{\|\boldsymbol{U}\| \|\boldsymbol{V}\|} = \frac{23}{5 \cdot \sqrt{29}}
+\]
+
+Finalmente, podemos usar la función inversa del coseno (arcocoseno) para encontrar el valor del ángulo $\varphi$:
+
+\[
+\varphi = \arccos\left(\frac{23}{5 \cdot \sqrt{29}}\right)
+\]
+
+Este ángulo $\varphi$ es el ángulo entre los vectores $\boldsymbol{U}$ y $\boldsymbol{V}$   
+\end{example}
+\begin{exercise}
+Demuestre que los vectores $\boldsymbol{U}=(2,-3)$ y $\boldsymbol{V}=(-4, 6)$ son paralelos.    
+\end{exercise}
+\begin{exercise}
+Demuestre que los vectores $\mathbf{u} = 3\mathbf{i} + 4\mathbf{j}$ y $\mathbf{v} = 24\mathbf{i} + 3\mathbf{j}$ son ortogonales.    
+\end{exercise}
+\subsection{Practica con r}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Matrices}
+
+\begin{definition}[Matriz] Si $m$ y $n$ son enteros positivos, una matriz $A$ de dimensión $m\times n$ es un arreglo de dimensión dos, con elementos $a_{ij}$, $a_{ij} \in \mathbb{R}$.
+\end{definition}
+
+La matriz $A$ tiene $m$ renglones (líneas horizontales) y $n$ columnas (líneas verticales):\\
+$$
+\underset{m \times n}A=\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+    a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+    a_{31} & a_{32} & a_{33} & \dots & a_{3n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn} \\
+  \end{bmatrix}
+$$ En forma compacta la matriz $A$ se puede escribir como
+$A=\{a_{ij}\}$.\\
+
+\begin{remark}
+Note que el elemento $a_{ij}$ está ubicado en el $i$-ésimo renglón y en la $j-$ésima columna de $A$.
+\end{remark}
+Componentes de una matriz.\\
+
+
+%----------------------------------------------
+\subsection{Traspuesta de una matriz}
+\begin{definition}
+   Sea $\mathrm{A}=\left(\mathrm{a}_{\mathrm{ij}}\right)$ una matriz $\mathrm{m} \times \mathrm{n}$. Se define la transpuesta de $\mathrm{A}$, denotada $\mathrm{A}^{\top}=\left(\mathrm{b}_{\mathrm{ij}}\right)$, como la matriz que satisface $\mathrm{b}_{\mathrm{ij}}=\mathrm{a}_{\mathrm{ji}}$ para todos $\mathrm{i}=1,2, \ldots, \mathrm{n}$ \,\,\text{y}\,\,  $\mathrm{j}=1,2, \ldots$, $\mathrm{m}$. Si A es una matriz tal que $\mathrm{A}^{\top}=\mathrm{A}\left(\mathrm{A}^{\top}=-\mathrm{A}\right)$, diremos que $\mathrm{A}$ es simétrica (antisimétrica). Note que en estos casos necesariamente A es cuadrada.
+\end{definition}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+Una matriz cuadrada se dice que es simétrica si \( A = A^{\top} \) o si \( a_{ij} = a_{ji} \) para todos \( i \) y \( j \).
+    
+\end{definition}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{remark}
+Para que una matriz $\mathrm{A}$ sea simétrica o antisimétrica es necesario que sea cuadrada. Si $\mathrm{A}$ es antisimétrica, entonces los elementos de la diagonal $\mathrm{a}_{\mathrm{ii}}$ son cero. Si $\mathrm{A}$ es cualquier matriz cuadrada, entonces las matrices $\mathrm{B}=\mathrm{A}^{\top}+\mathrm{A}$ y $\mathrm{C}=\mathrm{A}^{\top}-\mathrm{A}$ son simétrica y antisimétrica respectivamente. ¿Se puede expresar $\mathrm{A}$ en términos de $\mathrm{B} y \mathrm{C}$ ?   
+\end{remark}
+
+\begin{example}
+$$
+\text { Si } \boldsymbol{A}=\left(\begin{array}{llll}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34}
+\end{array}\right) \text {, entonces } \boldsymbol{A}^{\boldsymbol{\top}}=\left(\begin{array}{lll}
+a_{11} & a_{21} & a_{31} \\
+a_{12} & a_{22} & a_{32} \\
+a_{13} & a_{23} & a_{33} \\
+a_{14} & a_{24} & a_{34}
+\end{array}\right)
+$$   
+\end{example}
+
+\begin{example}
+ Dada la matriz $A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$,
+la transpuesta de $A$ se denota como $A^T$ y se obtiene intercambiando filas por columnas:
+\[ A^T = \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}. \]
+\end{example}
+
+\begin{exercise}
+Sean $A$ y $B$ matrices tales que el producto $A B$ está definido. Demuestre que $(A B)^{\top}$ $=B^{\top} A^t$. 
+\end{exercise}
+\begin{solution}
+Dadas las matrices $\mathbf{A} = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ y $\mathbf{B} = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$, el producto $\boldsymbol{AB}$ es:
+
+\[
+\boldsymbol{AB} = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} = \begin{bmatrix} (1)(5) + (2)(7) & (1)(6) + (2)(8) \\ (3)(5) + (4)(7) & (3)(6) + (4)(8) \end{bmatrix} = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}.
+\]
+
+La transpuesta de $\boldsymbol{AB}$ es:
+
+\[
+\boldsymbol{(AB)^T} = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}^T = \begin{bmatrix} 19 & 43 \\ 22 & 50 \end{bmatrix}.
+\]
+
+La transpuesta de $\boldsymbol{{A}}$ es:
+
+\[
+\boldsymbol{A^T} = \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}.
+\]
+
+La transpuesta de $\boldsymbol{B}$ es:
+
+\[
+\boldsymbol{B^T}= \begin{bmatrix} 5 & 7 \\ 6 & 8 \end{bmatrix}.
+\]
+
+Por lo tanto, $\boldsymbol{B^T A^T} = \begin{bmatrix} 5 & 7 \\ 6 & 8 \end{bmatrix} \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix} = \begin{bmatrix} (5)(1) + (7)(2) & (5)(3) + (7)(4) \\ (6)(1) + (8)(2) & (6)(3) + (8)(4) \end{bmatrix} = \begin{bmatrix} 19 & 43 \\ 22 & 50 \end{bmatrix}$.
+
+Por lo tanto, $\boldsymbol{(AB)^T} = \boldsymbol{B^T A^T}$.
+   
+\end{solution}
+
+\begin{exercise}
+ Para una matriz cuadrada $A$ se define su traza, denotada $\operatorname{tr}(A):=\sum_{i=1}^n a_{i i}$. ¿Cuándo es cero la traza de $A A^{\top}$ ?    
+\end{exercise}
+\begin{exercise}
+ Si $A$ y $B$ son matrices cuadradas, calcule $\operatorname{tr}(A B)$ y $\operatorname{tr}(B A)$. ¿ Hay alguna relación entre estos números?
+\end{exercise}
+\begin{exercise}
+ ¿Es correcta la ecuación $\operatorname{tr}(A+B)=\operatorname{tr}(A)+\operatorname{tr}(B)$ ?   
+\end{exercise}
+\begin{exercise}
+  ¿Existen matrices $n \times n, A$ y $B$ tales que $A B-B A=I_n$ ?   
+\end{exercise}
+\textcolor{red}{ Definición y agregar ejemplos}
+
+%----------------------------------------------
+\subsection{Inversa de una matriz}
+\textcolor{red}{ Definición y agregar ejemplos}
+\begin{definition}
+La matriz identidad $\boldsymbol{I}_n$ de $n \times n$ es una matriz cuyos elementos en la diagonal principal son iguales a $1$ y todos los demás son $0$. Es decir,
+$$ \boldsymbol{I}_n = (b_{ij}) $$
+donde $b_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases} $    
+\end{definition}
+\begin{definition}
+ Sean $\boldsymbol{A}$ y $\boldsymbol{B}$ dos matrices de $n \times n$. Suponga que $\boldsymbol{AB} = \boldsymbol{BA} = \boldsymbol{I}$. Entonces $\boldsymbol{B}$ se llama la inversa de $\boldsymbol{A}$ y se denota por $\boldsymbol{A}^{-1}$. Entonces se tiene $\boldsymbol{AA}^{-1} = \boldsymbol{A}^{-1}\boldsymbol{A} = \boldsymbol{I}$. Si $\boldsymbol{A}$ tiene inversa, entonces se dice que $\boldsymbol{A}$ es invertible.   
+\end{definition}
+Una matriz cuadrada que no es invertible se le denomina singular y una matriz invertible se 
+llama no singular.\\
+Sean $\boldsymbol{A}$ una matriz cuadrada de tamaño $n \times n$. La matriz inversa de $A$, denotada como $\boldsymbol{A}^{-1}$, se calcula utilizando la fórmula:
+
+\[
+\boldsymbol{A}^{-1} = \frac{1}{{\text{{det}}(\boldsymbol{A})}} \cdot \text{{adj}}(\boldsymbol{A})
+\]
+
+donde $\text{{det}}(\boldsymbol{A})$ es el determinante de la matriz $\boldsymbol{A}$ y $\text{{adj}}(\boldsymbol{A})$ es la matriz adjunta de $\boldsymbol{A}$.
+
+Para calcular la matriz inversa de una matriz específica, primero debes encontrar su determinante y luego la matriz adjunta. Una vez que tengas estos valores, puedes usar la fórmula anterior para encontrar la matriz inversa.\\
+Para calcular el determinante de una matriz cuadrada $\boldsymbol{A}$ de tamaño $n \times n$, existen varios métodos  según su dimensión, a continuación se muestran algunos:
+\begin{itemize}
+\item {Dimensión 1:} El determinante de la matriz \( \boldsymbol{A} = (a) \) es \( \text{det}(\boldsymbol{A}) = a \).
+
+\item {Dimensión 2:} El determinante de la matriz \( \boldsymbol{A} = (a_{i,j}) \) donde \( a_{i,j} \) es el elemento de la fila \( i \) y columna \( j \) es \( \text{det}(\boldsymbol{A}) = a_{1,1} \cdot a_{2,2} - a_{1,2} \cdot a_{2,1} \).
+
+\item {Dimensión 3:} Usaremos la regla de Sarrus.
+
+\item {Dimensión 4 o mayor:} Usaremos el teorema de Laplace.
+\end{itemize}
+a continuación se muestran ejemplo del determinante de una matriz de $2\times2$\\
+\begin{example}
+\[
+\text{Sea } \boldsymbol{A} = \begin{pmatrix}
+2 & 3 \\
+4 & 1
+\end{pmatrix}
+\]
+El determinante de la matriz \( \boldsymbol{A} \) se calcula como:
+\[
+\text{det}(\boldsymbol{A}) = (2 \times 1) - (4 \times 3) = 2 - 12 = -10
+\]  
+\end{example}
+\begin{example}
+\[
+\text{Sea } \boldsymbol{B} = \begin{pmatrix}
+5 & -2 \\
+-1 & 3
+\end{pmatrix}
+\]
+El determinante de la matriz \( \boldsymbol{B} \) se calcula como:
+\[
+\text{det}(\boldsymbol{B}) = (5 \times 3) - (-1 \times -2) = 15 - 2 = 13
+\]
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La regla de Sarrus para encontrar el determinante de una matriz \( A \) de \( 3 \times 3 \) es:
+\begin{align}
+\label{sarrus}
+  \det(\boldsymbol{A}) = 
+\begin{vmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{vmatrix}
+= aei + bfg + cdh - ceg - bdi - afh  
+\end{align}
+
+
+Veamos un ejemplo específico:
+\begin{example}
+Calcular el determinante de la siguiente matriz utilizando el método de Sarrus:
+\[ \boldsymbol{A} = \begin{pmatrix} 2 & -1 & 3 \\ 0 & 2 & -1 \\ -2 & 0 & 4 \end{pmatrix} \]
+
+\textbf{Solución:}
+Aplicaremos la regla de Sarrus (\ref{sarrus}) para calcular el determinante de la matriz \( \boldsymbol{A} \):
+
+\[
+\det(A) = (2)(2)(4) + (-1)(-1)(-2) + (3)(0)(0) - (3)(2)(-2) - (-1)(0)(4) - (2)(-1)(0)
+\]
+
+Realizando las operaciones, obtenemos:
+
+\[
+\det(\boldsymbol{A}) = 16 - 2 + 0 - (-12) - 0 - 0 = 16 -2  + 12 = 26
+\]
+
+Por lo tanto, el determinante de la matriz \( \boldsymbol{A} \) es \( \text{det}(\boldsymbol{A}) = 26 \).
+\end{example}
+
+
+\begin{exercise}
+Aplicar la regla de Sarrus para calcular el determinante de la matriz $\boldsymbol{A}$
+ $$\begin{aligned}
+   \text{Sea} \,\,\boldsymbol{A}=\left(\begin{array}{ccc}
+1 & -2 & 1 \\
+4 & 2 & 1 \\
+3 & -1 & 2
+\end{array}\right)\\  
+ \end{aligned}$$   
+\end{exercise}
+
+\begin{solution}
+Dada la expresión \ref{sarrus} el det($\boldsymbol{A}$) queda dado de la siguiente manera:\\
+\[\text{det}(\boldsymbol{A})=1 \cdot 2 \cdot 2+(-2) 1 \cdot 3+1 \cdot4 \cdot( -1)-1\cdot2\cdot3-2 \cdot 4(2)-(1) \cdot 1 \cdot(- 1)\\
+ =4-6-4-6+16+1\\
+ =5
+ \]    
+\end{solution}
+    
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+El determinante de una matriz de dimensión mayor que 3 suele calcularse mediante la fórmula de Laplace, esta regla de Laplace  se puede aplicar para matrices cuadradas de cualquier dimensión, pero normalmente se hace para dimensiones mayores que 3.
+
+Hay dos versiones de la regla: desarrollo por una fila y desarrollo por una columna. El resultado es el mismo, pero escogeremos uno u otro según nos convenga.
+
+El método  consiste en elegir una fila $i$ de la matriz (o una columna $j$).
+El determinante de la matriz es la suma de cada elemento $a_{ij}$ de dicha fila multiplicado por $(-1)^{i+j}$ (es $+1$ o $-1$ según la posición del elemento) y por el determinante de la submatriz $\boldsymbol{A}_{ij}$.
+Recordar que la submatriz $\boldsymbol{A}_{ij}$ es la matriz que resulta al eliminar la fila $i$ y columna $j$ de la matriz $\boldsymbol{A}$.
+\begin{remark}
+  Es mejor desarrollar por la fila o la columna que tenga más ceros, ya que no tendremos que calcular el determinante cuando $a_{ij} = 0$.  
+\end{remark}
+
+Fórmula: Desarrollo por la fila $i$ de la matriz $\boldsymbol{A}$ de dimensión $n$ :
+$$
+\text{det}(\boldsymbol{A})=\sum_{j=1}^n a_{i j} \cdot(-1)^{i+j} \cdot \text{det}(\boldsymbol{A})_{i j}
+$$
+siendo $\boldsymbol{A}_{i j}$ la matriz de dimensión $n-1$ resultante al eliminar la fila $i$ y la columna $j$ de $\boldsymbol{A}$.
+Por tanto, si la matriz es dimensión $n$, tendremos que calcular $n$ determinantes de matrices de dimensión $n-1$. Esta es la razón por la que solo usamos esta regla cuando no hay otra opción (dimensión mayor que 3).
+
+
+
+\begin{example}
+Para que sea más sencillo, vamos a calcular el determinante de una matriz de dimensión $2 \times 2$ desarrollando por la fila 1 :
+\[
+ \boldsymbol{A}=\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}\\\]
+\[
+\text{det}(\boldsymbol{A}) =1 \cdot(-1)^{1+1} \cdot\text{det}\begin{pmatrix}   
+1 & 2 \\
+3 & 4
+ \end{pmatrix} 
+ +2 \cdot(-1)^{1+2} \cdot \text{det}\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix} \]\[
+ =1 \cdot 1 \cdot4
++2 \cdot(-1) \cdot 3\\\]\[
+ =4-6=-2\]
+\end{example}
+
+\begin{example}
+Calcularemos el determinante de la siguiente matriz de dimensión 3 :
+$$
+\boldsymbol{A}=\left(\begin{array}{lll}
+1 & 2 & 3 \\
+1 & 0 & 1 \\
+2 & 2 & 1
+\end{array}\right)
+$$
+
+Como tenemos un 0 en la segunda fila, desarrollamos por la fila 2 :
+$$
+\begin{aligned}
+&\text{det}(\boldsymbol{A}) =1 \cdot(-1)^{2+1} \cdot\left(\begin{array}{ccc}
+\times & 2 & 3 \\
+\times & \times & \times \\
+\times & 2 & 1
+\end{array}\right) \\
+& +0 \cdot(-1)^{2+2} \cdot\left(\begin{array}{ccc}
+1 & \times & 3 \\
+\times & \times & \times \\
+2 & \times & 1
+\end{array}\right) \\
+& +1 \cdot(-1)^{2+3} \cdot\left(\begin{array}{lll}
+1 & 2 & \times \\
+\times & \times & \times \\
+2 & 2 & \times
+\end{array}\right)= \\
+& =1 \cdot(-1) \cdot(-4) \\
+& +0 \\
+& +1 \cdot(-1) \cdot(-2)= \\
+& =4+2= \\
+& =6
+\end{aligned}
+$$  
+\end{example}
+\begin{example}
+Sea  $$\boldsymbol{A}=\left(\begin{array}{rrrr}
+1 & 0 & 3 & -3 \\
+2 & -3 & -2 & 3 \\
+-1 & 2 & 1 & 2 \\
+3 & 2 & 5 & 0
+\end{array}\right) $$\\
+Desarrollamos el determinante por la fila 1 porque tiene un 0 , aunque también podríamos escoger la fila 4 , la columna 2 o la columna 4 :
+$$
+\begin{aligned}
+&\text{det}(\boldsymbol{A}) =1 \cdot(-1)^{1+1} \cdot\left(\begin{array}{ccc}
+-3 & -2 & 3 \\
+2 & 1 & 2 \\
+2 & 5 & 0
+\end{array}\right) \\
+& +0 \cdot(-1)^{1+2} \cdot\left(\begin{array}{ccc}
+2 & -2 & 3 \\
+-1 & 1 & 2 \\
+3 & 5 & 0
+\end{array}\right) \\
+& +3 \cdot(-1)^{1+3} \cdot\left(\begin{array}{ccc}
+2 & -3 & 3 \\
+-1 & 2 & 2 \\
+3 & 2 & 0
+\end{array}\right) \\
+& -3 \cdot(-1)^{1+4} \cdot\left(\begin{array}{ccc}
+2 & -3 & -2 \\
+-1 & 2 & 1 \\
+3 & 2 & 5
+\end{array}\right) \\
+& =1 \cdot 46 +3 \cdot(-50)+3 \cdot 8\\
+& =-80
+\end{aligned}
+$$
+\end{example}
+\begin{definition}
+Sea $A$ una matriz de $n \times n$ y sea $B$,  la matriz de sus cofactores. Entonces, la adjunta de $A$, escrito adj ($A$), es la transpuesta de la matriz $B$ de $n \times n$; es decir,
+$$\operatorname{adj} (A)=B^{\top}=\left(\begin{array}{cccc}A_{11} & A_{21} & \cdots & A_{n 1} \\ A_{12} & A_{22} & \cdots & A_{n 2} \\ \vdots & \vdots & & \vdots \\ A_{1 n} & A_{2 n} & \cdots & A_{n n}\end{array}\right)$$    
+\end{definition}
+La matriz adjunta de una matriz cuadrada $\boldsymbol{A}$ de tamaño $n \times n$, denotada como $\text{{adj}}(\boldsymbol{A})$, se calcula tomando la matriz de cofactores transpuesta de $\boldsymbol{A}$. Es decir, cada elemento de la matriz de cofactores se coloca en la posición correspondiente en la matriz adjunta, pero se intercambian filas y columnas. Por lo tanto, si $C_{ij}$ es el cofactor asociado al elemento $a_{ij}$ de $\boldsymbol{A}$, entonces el elemento $(i, j)$ de la matriz adjunta es $C_{ji}$.
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}[colback=white!5!white,colframe=red!50!red,title=Teorema]
+Si una matriz $\boldsymbol{A}$ es invertible, entonces su inversa es única.\\
+\textbf{Demostración:} Supongamos que $\boldsymbol{B}$ y $\boldsymbol{C}$ son dos inversas de $\boldsymbol{A}$. Se puede demostrar que $\boldsymbol{B} = \boldsymbol{C}$. Por definición, se tiene $\boldsymbol{AB} = \boldsymbol{BA} = \boldsymbol{I}$ y $\boldsymbol{AC} =\boldsymbol{ CA} = \boldsymbol{I}$. Por la ley asociativa de la multiplicación de matrices, se tiene que $\boldsymbol{B}(\boldsymbol{AC}) = (\boldsymbol{BA})\boldsymbol{C}$. Entonces,
+\[ \boldsymbol{B} = \boldsymbol{BI} = \boldsymbol{B(AC)} = \boldsymbol{(BA)C} = \boldsymbol{IC} = \boldsymbol{C} \]
+Por lo tanto, $\boldsymbol{B} = \boldsymbol{C}$, y el teorema queda demostrado. 
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}[colback=white!5!white,colframe=red!50!red,title=Teorema]
+Sean $A$ y $B$ dos matrices invertibles de $n \times n$. Entonces $AB$ es invertible y 
+$(AB)^{-1} = B^{-1} A^{-1}$.
+
+\textbf{Demostración:}\\
+Para probar este resultado es necesaria la definición 1.15. Es decir, $B^{-1} A^{-1} = (AB)^{-1}$ si 
+y sólo si $B^{-1} A^{-1} (AB) = (AB) (B^{-1} A^{-1}) = I$. Se trata, únicamente, de una consecuencia 
+ya que
+\[
+(B^{-1} A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I,
+\]
+y
+\[
+(AB)(B^{-1} A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I.
+\]
+Por lo tanto, $AB$ es invertible y $(AB)^{-1} = B^{-1} A^{-1}$.
+ \end{tcolorbox}
+\begin{exercise}
+Si $A$ es una matriz cuadrada que tiene inversa,  ¿tiene inversa $A^T$?  
+\end{exercise}
+\begin{exercise}
+¿Puede tener traza cero una matriz que tiene inversa?
+\end{exercise}
+\begin{exercise}
+    Dada la matriz $A$ de $3 \times 3$:
+\[
+A = \begin{pmatrix} 
+1 & 2 & 3 \\
+0 & 1 & 4 \\
+5 & 6 & 0 
+\end{pmatrix}
+\]
+Encuentra su inversa, si existe.
+
+\end{exercise}
+\begin{exercise}
+ Calcula la inversa de la matriz $B$ de $3 \times 3$:
+\[
+B = \begin{pmatrix} 
+2 & 0 & 1 \\
+1 & 2 & 1 \\
+1 & 0 & 2 
+\end{pmatrix}
+\]
+si es posible.
+   
+\end{exercise}
+%----------------------------------------------
+\subsection{Diagonización de una matriz}
+\begin{definition}
+Una matriz cuadrada se denomina triangular superior si todas sus componentes por debajo de la diagonal son cero. Es una matriz triangular inferior si todas sus componentes por encima de la diagonal son cero. Una matriz se denomina diagonal si todos los elementos que no se encuentran sobre la diagonal son cero; es decir, \( A = (a_{ij}) \) es triangular superior si \( a_{ij} = 0 \) para \( i > j \), triangular inferior si \( a_{ij} = 0 \) para \( i < j \) y diagonal si \( a_{ij} = 0 \) para \( i \neq j \). Observe que una matriz diagonal es tanto triangular superior como triangular inferior.
+
+\end{definition}
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+Sea $\boldsymbol{A}$ una matriz de ${n \times n}$, y $K$  un campo  decimos que $\boldsymbol{A}$ es diagonalizable en $K$ si existen dos matrices cuadradas, $P$ y $D$, de la misma dimensión que $A$ y sobre $K$ tales que:\\
+\begin{itemize}
+ \item  $P$ es regular,
+ \item  $D$ es diagonal 
+ \item  $A=P D P^{-1}$
+(o, equivalentemente, $P^{-1} A P=D$ ).
+\end{itemize}
+\end{definition}
+Propiedades inmediatas de la definición.
+\begin{itemize}
+    \item $A$ es semejante a $D$.
+    \item Si $A$ es real y diagonalizable en los reales, lo es en los complejos (los reales son subespacio de los complejos).
+    \item La matriz $P$ no es única (existen infinitas posibilidades para la factorización). Por ejemplo, podemos multiplicar $P$ por un escalar no nulo y $P^{-1}$ por su inverso.
+    \item Si $A = PDP^{-1}$ es una diagonalización de $A$, la matriz diagonal $D = \text{diag}(d_1, d_2, \dots, d_n)$ está formada por autovalores de $A$, y el vector de la columna $i$ de la matriz $P$ es un vector propio asociado al autovalor $d_i$.
+\end{itemize}
+\begin{definition}
+Sea \( V \) un \( K \)-espacio vectorial, y sea \( C \) un subconjunto de \( V \). Decimos que \( C \) es linealmente dependiente (o simplemente dependiente) sobre el campo \( K \) si existen vectores distintos \( v_1, \ldots, v_n \) (con \( n \) un entero positivo) en \( C \) y escalares \( a_1, \ldots, a_n \) en \( K \) tales que no todos los \( a_i \) son cero, pero \( a_1v_1 + a_2v_2 + \ldots + a_nvn \) es igual al vector cero de \( V \). Si \( C \) no es linealmente dependiente sobre \( K \), decimos que \( C \) es linealmente independiente sobre \( K \). Una sucesión finita \( v_1, \ldots, v_n \) de vectores en \( V \) es una sucesión linealmente independiente si todos los vectores son diferentes y el conjunto \( \{v_1, \ldots, v_n\} \) es linealmente independiente. Si la sucesión no es linealmente independiente, se dice que es una sucesión linealmente dependiente.
+\end{definition}
+\begin{example}
+Sea \( V = \mathbb{R}^2 \). El conjunto \( \{(1, 0), (0, 1), (2, -3)\} \) es linealmente dependiente sobre \( \mathbb{R} \), pues tenemos la siguiente combinación lineal con escalares reales no todos nulos que da el vector cero:
+\[ -2(1, 0) + 3(0, 1) + 1(2, -3) = (0, 0) \]    
+\end{example}
+\begin{example}
+ Sea \( V = \mathbb{R}^2 \). El conjunto \( \{(1, 0), (0, 1)\} \) es linealmente independiente sobre \( \mathbb{R} \), pues dados cualesquiera escalares reales \( a \) y \( b \), si \( (0, 0) = a(1, 0) + b(0, 1) = (a, b) \), se seguiría que \( a = 0 \) y \( b = 0 \), es decir, los escalares son todos nulos.
+   
+\end{example}
+\subsection{Práctica con R}
+\begin{verbatim}
+ # Definir los vectores
+v1 <- c(1, 0, 0)
+v2 <- c(0, 1, 0)
+v3 <- c(2, -3, 0)
+
+# Crear la matriz con los vectores como columnas
+M <- cbind(v1, v2, v3)
+
+# Calcular la combinación lineal que produce el vector cero
+comb_lineal <- -2*v1 + 3*v2 + 1*v3
+
+# Verificar si la combinación lineal es el vector cero
+is_zero <- all(comb_lineal == 0)
+
+# Mostrar el resultado
+if (is_zero) {
+  print("El conjunto de vectores es linealmente dependiente.")
+} else {
+  print("El conjunto de vectores es linealmente independiente.")
+}   
+\end{verbatim}
+\begin{definition}
+Sea $\mathbf{A}$ una matriz simétrica cuadrada $k \times k$. Entonces $\mathbf{A}$ tiene $k$ pares de valores propios y vectores propios, es decir,
+$$
+\lambda_1, \mathbf{e}_1 \quad \lambda_2, \mathbf{e}_2 \quad \ldots \quad \lambda_k, \mathbf{e}_k
+$$
+
+Los vectores propios se pueden elegir para satisfacer $1=\mathbf{e}_1^{\top} \mathbf{e}_1=\cdots=\mathbf{e}_k^{\top} \mathbf{e}_k$ y ser mutuamente perpendiculares. Los vectores propios son únicos a menos que dos o más valores propios sean iguales.    
+\end{definition}
+Si $A$ es diagonalizable en los reales, para obtener las matrices $P$ y $D$ procedemos del siguiente modo:
+
+\begin{enumerate}
+    \item Obtener los valores propios de la matriz $A$.
+    \item Buscar una base de los subespacios asociados a los valores propios (la unión de todas ellas es una base de $\mathbb{R}^n$).
+    \item Construir $P$ cuyas columnas sean la base obtenida.
+    \item Construir $D = \text{diag}(d_1, d_2, \dots, d_n)$ donde $d_i$ es el valor propio asociado al vector propio de la columna $i$ de $P$.
+\end{enumerate}
+Sea \( A_{n \times n} \in \mathbb{R} \) es diagonalizable si y solo si \( A \) tiene \( n \) autovectores linealmente independientes. Sean \( v_1, v_2, \ldots, v_n \) autovectores LI de la matriz \( A_{n \times n} \in \mathbb{R} \). Podemos construir una matriz \( P \) cuyas columnas sean dichos autovectores:
+\[ P = \begin{pmatrix} v_1 & v_2 & \ldots & v_n \end{pmatrix} \]
+\( P \) es inversible porque sus columnas son LI y, por lo tanto, tiene rango \( n \) (\( \det(P) \neq 0 \)). Puede demostrarse que: \( P^{-1}AP = D \) donde \( D \) es una matriz diagonal cuyos elementos son los respectivos autovalores.
+$$
+D = \begin{pmatrix}
+\lambda_1 & 0 & 0 & \cdots & 0 \\
+0 & \lambda_2 & 0 & \cdots & 0 \\
+0 & 0 & \lambda_3 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & \lambda_n
+\end{pmatrix}$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+ Diagonalizar la siguiente matriz si es posible:
+\[ B = \begin{pmatrix}
+1 & 2 & 4 \\
+2 & 1 & -4 \\
+0 & 0 & 3
+\end{pmatrix} \]
+
+Buscamos los autovalores:
+\[ \text{det}(B - \lambda I) = \begin{vmatrix}
+1 - \lambda & 2 & 4 \\
+2 & 1 - \lambda & -4 \\
+0 & 0 & 3 - \lambda
+\end{vmatrix} = (3 - \lambda) ((1 - \lambda)^2 - 4) = 3 \lor \lambda = -1 \]
+
+Para \( \lambda = -1 \) buscamos el autoespacio correspondiente:
+\[ \begin{pmatrix}
+2 & 2 & 4 \\
+2 & 2 & -4 \\
+0 & 0 & 4
+\end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \]
+
+\[ S_{-1} = \text{gen} \left\{ \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} \right\} \]
+
+Verificamos que el otro autoespacio es:
+\[ S_3 = \text{gen} \left\{ \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix} \right\} \]
+
+Como se obtuvieron  tres autovectores linealmente independientes, la matriz \( P \) existe y la construimos ubicando a los autovectores como columna:
+\[ P = \begin{pmatrix}
+1 & 1 & 1 \\
+-1 & -1 & 1 \\
+0 & 1 & 0
+\end{pmatrix} \]
+
+Esta es la matriz que permite diagonalizar a la matriz \( B \).
+\[ P^{-1} = \begin{pmatrix}
+\frac{1}{2} & -{\frac{1}{2}} & -1 \\
+0 & 0 & 1\\
+\frac{1}{2} & \frac{1}{2} & 0
+\end{pmatrix} \]
+
+La matriz diagonal correspondiente es:
+\[ P^{-1} A P = D = \begin{pmatrix}
+-1 & 0 & 0 \\
+0 & 3 & 0 \\
+0 & 0 & 3
+\end{pmatrix} \]
+
+El orden de los autovalores en \( D \) es el mismo orden que el de los autovectores en las columnas de \( P \). Por ejemplo, si construimos la matriz \( P \) así:
+\[ P = \begin{pmatrix}
+1 & 1 & 1 \\
+1 & -1 & -1 \\
+0 & 0 & 1
+\end{pmatrix} \]
+
+Verifiquen que la matriz \( D \) queda:
+\[ D = \begin{pmatrix}
+3 & 0 & 0 \\
+0 & 3 & 0 \\
+0 & 0 & -1
+\end{pmatrix} \]
+   
+\end{example}
+\begin{tcolorbox}[colback=white!5!white,colframe=red!50!red,title=Teorema]
+ Una matriz $A$ real de dimensión $n \times n$  es diagonalizable en los reales (y, por tanto, en los complejos) si y solo si existe una base de $\mathbb{R}^n$ formada por vectores propios de $A$.\\
+ \textbf{ La demostración queda al lector}.
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%
+\begin{example}
+ La siguiente matriz real $A$ es diagonalizable en los reales $\mathrm{y}$, por tanto, en los complejos\\
+ \begin{equation*}
+A=\left[\begin{array}{lll}
+1 & 2 & 3 \\
+0 & 0 & 2 \\
+0 & 1 & 1
+\end{array}\right]=\underbrace{\left[\begin{array}{ccc}
+1 & 1 & 5 \\
+0 & -4 & 1 \\
+0 & 2 & 1
+\end{array}\right]}_P \underbrace{\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 2
+\end{array}\right]}_D\underbrace{\left[\begin{array}{ccc}
+1 & -3 / 2 & -7 / 2 \\
+0 & -1 / 6 & 1 / 6 \\
+0 & 1 / 3 & 2 / 3
+\end{array}\right]}_{P^{-1}}
+\end{equation*}
+\end{example}
+%%%%%%%%%%%%%%%
+\begin{exercise}
+    Sea:
+\[ M = \begin{pmatrix}
+1 & 2 & 3 \\
+2 & a & b \\
+0 & 0 & 3
+\end{pmatrix} \]
+
+Determinar los valores de \( a \) y \( b \) de modo que \( \lambda = 3 \) sea autovalor doble, y \( M \) sea diagonalizable.
+\end{exercise}
+%%%%%%%%%%%%%%%%
+\begin{exercise}
+Encuentra una matriz inversible \( P \) y una matriz diagonal \( D \) tal que \( P^{-1}AP = D \) para la matriz \( A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} \).
+\end{exercise}
+%%%%%%%%%%%%%%
+\begin{exercise}
+Diagonaliza la matriz \( B = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 3 & 1 \\ 0 & 1 & 3 \end{pmatrix} \).   
+\end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%5
+\begin{exercise}
+ Sea \( A_{3 \times 3}  \in \mathbb{R}\) tal que su polinomio característico es \( p(\lambda) = \lambda^2 (1 - \lambda) \), y \( S = \{ {x} \in \mathbb{R}^3 | x_1 + x_2 + x_3 = 0 \} \) es un autoespacio de \( A \). Analizar si \( A \) es diagonalizable.
+   
+\end{exercise}
+
+%----------------------------------------------
+\subsection{Práctica con R}
+\begin{verbatim}
+# Definir la matriz
+A <- matrix(c(1, 2, 3, 2, 1, -4, 0, 0, 3), nrow = 3, byrow = TRUE)
+
+# Calcular los autovalores y autovectores
+eigen_result <- eigen(A)
+
+# Obtener la matriz de autovectores
+P <- eigen_result$vectors
+
+# Obtener la matriz diagonal de autovalores
+D <- diag(eigen_result$values)
+
+# Verificar si la matriz es diagonalizable
+is_diagonalizable <- all(round(P %*% solve(P) %*% A, 8) == round(D, 8))    
+\end{verbatim}
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ # Definir la matriz A
+A <- matrix(c(1, 2, 0, 0, 3, 0, 0, 0, 2), nrow = 3, byrow = TRUE)
+
+# Calcular los autovalores y autovectores
+eigen_result <- eigen(A)
+autovalores <- eigen_result$values
+autovectores <- eigen_result$vectors
+
+# Mostrar los autovalores y autovectores
+print("Autovalores:")
+print(autovalores)
+print("Autovectores:")
+print(autovectores)
+
+# Verificar si la matriz es diagonalizable
+is_diagonalizable <- all(round(autovalores) == autovalores)
+print("¿Es la matriz diagonalizable?")
+print(is_diagonalizable)
+
+# Construir la matriz P con los autovectores
+P <- autovectores
+print("Matriz P:")
+print(P)
+
+# Calcular la inversa de P
+P_inv <- solve(P)
+print("Inversa de P:")
+print(P_inv)
+
+# Comprobar si P^-1 * A * P = D
+D <- diag(autovalores)
+resultado <- round(P_inv %*% A %*% P, 8) == round(D, 8)
+print("¿P^-1 * A * P = D?")
+print(resultado)   
+\end{verbatim}
+
+%----------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Suma de matrices} 
+
+\begin{definition}[ Suma de matrices] Si $A = \{a_{ij}\}$ y $B = \{b_{ij}\}$ son matrices de dimensiones $m\times n$, entonces la suma es la matriz de $A$ y $B$, está dada por $A+B$.  
+\end{definition}
+Es decir, 
+
+$$
+\underset{m \times n}{A+B}=\begin{bmatrix}
+    a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13} & \dots & a_{1n}+b_{1n} \\
+    a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23} & \dots & a_{2n}+b_{2n} \\
+    a_{31}+b_{31} & a_{32}+b_{32} & a_{33}+b_{33} & \dots & a_{3n}+b_{3n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    a_{m1}+b_{m1} & a_{m2}+b_{m2} & a_{m3}+b_{m3} & \dots & a_{mn}+b_{mn} \\
+  \end{bmatrix}
+$$
+
+\begin{remark}
+Note que si \( A \) y \( B \) son matrices con entradas en un mismo campo, su suma está bien definida si y solo si \( A \) y \( B \) tienen las mismas dimensiones.
+    
+\end{remark}
+\textbf{Propiedades de la suma de matrices:}
+
+\begin{enumerate}
+    \item \textbf{Conmutativa:} \( A + B = B + A \) para cualquier matriz \( A \) y \( B \) del mismo tamaño.
+    
+    \item \textbf{Asociativa:} \( (A + B) + C = A + (B + C) \) para matrices \( A \), \( B \) y \( C \) del mismo tamaño.
+    
+    \item \textbf{Elemento neutro:} Existe una matriz \( O \) llamada matriz nula tal que \( A + O = A \) para cualquier matriz \( A \).
+    
+    \item \textbf{Elemento opuesto:} Para cada matriz \( A \), existe una matriz \( -A \) tal que \( A + (-A) = O \), donde \( O \) es la matriz nula.
+\end{enumerate}
+
+
+
+%----------------------------------------------
+\subsection{Resolución de ejemplos}
+
+\begin{example} Sea
+$$
+A =
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+\end{bmatrix}
+$$
+
+$$
+B =
+\begin{bmatrix}
+    5 & 6 \\
+    7 & 8 \\
+\end{bmatrix}
+$$ Entonces $$
+A + B =
+\begin{bmatrix}
+    1+5 & 2+6 \\
+    3+7 & 4+8 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    6 & 8 \\
+    10 & 12 \\
+\end{bmatrix}
+$$
+\end{example}
+\begin{example}
+ Sean $A = \begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix}$ y $B = \begin{pmatrix}
+9 & 8 & 7 \\
+6 & 5 & 4 \\
+3 & 2 & 1
+\end{pmatrix}$. La suma de $A$ y $B$ es:
+
+\[ A + B = \begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix} + \begin{pmatrix}
+9 & 8 & 7 \\
+6 & 5 & 4 \\
+3 & 2 & 1
+\end{pmatrix} = \begin{pmatrix}
+10 & 10 & 10 \\
+10 & 10 & 10 \\
+10 & 10 & 10
+\end{pmatrix} \]   
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\begin{exercise}
+ Si dos sistemas de ecuaciones tienen la misma matriz asociada,
+entonces los dos sistemas son iguales.   
+\end{exercise}
+\begin{exercise}
+    Demuestre que la suma de matrices es asociativa, es decir, que si \( \boldsymbol{A} \), \( \boldsymbol{B} \) y \( \boldsymbol{C} \) son matrices con las mismas dimensiones, entonces se pueden definir \( \boldsymbol{A} + \boldsymbol{B} \), \( [\boldsymbol{A} + \boldsymbol{B}] + \boldsymbol{C} \), \( \boldsymbol{B} + \boldsymbol{C} \) y \( \boldsymbol{A} + [\boldsymbol{B} + \boldsymbol{C}] \), y además \( [\boldsymbol{A} + \boldsymbol{B}] + \boldsymbol{C} = \boldsymbol{A} + [\boldsymbol{B} + \boldsymbol{C}] \). Debido a esto, dicha suma usualmente se escribe simplemente como \( \boldsymbol{A} + \boldsymbol{B} + \boldsymbol{C} \).
+\end{exercise}
+\begin{exercise}
+ Demuestre que si dos sistemas homogéneos de ecuaciones tienen la misma matriz asociada, entonces los dos sistemas son iguales.
+\end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Práctica con r}
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Crear las matrices
+A <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, byrow = TRUE)
+B <- matrix(c(7, 8, 9, 10, 11, 12), nrow = 2, byrow = TRUE)
+
+# Realizar la suma de matrices
+C <- A + B
+
+# Mostrar el resultado
+print(C)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\end{verbatim}
+\begin{verbatim}
+# Crear la primera matriz con enteros
+A <- matrix(c(1, 2, 3, 4), nrow = 2, byrow = TRUE)
+
+# Crear la segunda matriz con fracciones
+B <- matrix(c(1/2, 3/4, 5/6, 7/8), nrow = 2, byrow = TRUE)
+
+# Realizar la suma de matrices
+C <- A + B
+
+# Mostrar el resultado
+print(C)    
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resta de matrices} 
+
+\begin{definition}[Resta de matrices]
+Si $A = \{a_{ij}\}$ y $B = \{b_{ij}\}$ son matrices de dimensiones $m\times n$, entonces la resta de $A$ y $B$ está dada por $A-B=\{a_{ij}\}-\{b_{ij}\}$.
+\end{definition}
+Así la resta de $A$ y $B$, está dado  por
+$$
+\underset{m \times n}{A-B}=\begin{bmatrix}
+    a_{11}-b_{11} & a_{12}-b_{12} & a_{13}-b_{13} & \dots & a_{1n}-b_{1n} \\
+    a_{21}-b_{21} & a_{22}-b_{22} & a_{23}-b_{23} & \dots & a_{2n}-b_{2n} \\
+    a_{31}-b_{31} & a_{32}-b_{32} & a_{33}-b_{33} & \dots & a_{3n}-b_{3n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    a_{m1}-b_{m1} & a_{m2}-b_{m2} & a_{m3}-b_{m3} & \dots & a_{mn}-b_{mn} \\
+  \end{bmatrix}
+$$
+
+
+
+\begin{remark}
+La resta de dos matrices de dimensión diferente no está definida.    
+\end{remark}
+%----------------------------------------------
+\subsection{Resolución de ejemplos}
+\begin{example}
+Sean \( A = \begin{pmatrix} 4 & 2 \\ 3 & 5 \end{pmatrix} \) y \( B = \begin{pmatrix} 1 & 1 \\ 2 & 2 \end{pmatrix} \). La resta de \( A \) y \( B \) es:
+
+\[ A - B = \begin{pmatrix} 4 & 2 \\ 3 & 5 \end{pmatrix} - \begin{pmatrix} 1 & 1 \\ 2 & 2 \end{pmatrix} = \begin{pmatrix} 4 - 1 & 2 - 1 \\ 3 - 2 & 5 - 2 \end{pmatrix} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} \]
+\end{example}
+\begin{example}
+Sean \( C = \begin{pmatrix} -1 & 0 & 2 \\ 4 & 1 & 3 \\ 2 & 2 & 0 \end{pmatrix} \) y \( D = \begin{pmatrix} 3 & 1 & 2 \\ 0 & -2 & 1 \\ -1 & 0 & 2 \end{pmatrix} \). La resta de \( C \) y \( D \) es:
+
+\[ C - D = \begin{pmatrix} -1 & 0 & 2 \\ 4 & 1 & 3 \\ 2 & 2 & 0 \end{pmatrix} - \begin{pmatrix} 3 & 1 & 2 \\ 0 & -2 & 1 \\ -1 & 0 & 2 \end{pmatrix} = \begin{pmatrix} -1 - 3 & 0 - 1 & 2 - 2 \\ 4 - 0 & 1 - (-2) & 3 - 1 \\ 2 - (-1) & 2 - 0 & 0 - 2 \end{pmatrix} = \begin{pmatrix} -4 & -1 & 0 \\ 4 & 3 & 2 \\ 3 & 2 & -2 \end{pmatrix} \]
+    
+\end{example}
+\subsection{Práctica con r}
+
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+
+      # Definir las matrices A y B
+      A <- matrix(c(1, 2, 3, 4), 
+                  nrow = 2, 
+                  byrow = TRUE)
+      B <- matrix(c(5, 6, 7, 8),
+                  nrow = 2,
+                  byrow = TRUE)
+
+      C<-A+B  # Suma de matrices
+      C
+\end{verbatim}
+
+
+\begin{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      x<-c(1,2,3,4)
+
+      A <- matrix(x, nrow = 2, byrow = TRUE)
+
+      B <- matrix(c(5, 6, 7, 8), 
+                  nrow = 2,
+                  byrow = TRUE)
+
+      C <-  A-B
+\end{verbatim}
+
+
+\section{Multiplicación de matrices} 
+
+\begin{definition}[Producto de matrices]
+Sean $K$ un campo, $\boldsymbol{A}$ una matriz de $m\times n$, y $\boldsymbol{B}$ una matriz
+de $n\times t$. El producto de las matrices  denotado $\boldsymbol{AB}$, es la matriz de $m\times t$ cuyas entradas están dadas por\\
+$$
+\boldsymbol{(AB)}_{ij} = \sum_{k=1}^{n} A_{ik}B_{kj}
+$$
+para $i=1,...,n$ y $j=1,...,p$. 
+\end{definition}
+
+
+Esta definición significa que el elemento en el $i$-ésimo renglón y en la $j$-ésima columna del producto $AB$ se obtiene al multiplicar los elementos del $i$-ésimo renglón de $A$ por los elementos correspondientes de la $j$-ésima columna de $B$ y
+luego sumar los elementos de esta multiplicación, es decir, si A y B son dos matrices de dimensión $m\times n$ y $n\times p$ respectivamente  como se muestran a continuación:
+
+\begin{minipage}[t]{0.3\textwidth}
+\[
+\underset{m \times n}{A} =
+\begin{bmatrix}
+    a_{11} & a_{12} & \dots & a_{1n} \\
+    a_{21} & a_{22} & \dots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \dots & a_{mn} \\
+\end{bmatrix}
+\]
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+ \[
+\underset{n \times p}{B} =
+\begin{bmatrix}
+    b_{11} & b_{12} & \dots & b_{1p} \\
+    b_{21} & b_{22} & \dots & b_{2p} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    b_{n1} & b_{n2} & \dots & b_{np} \\
+\end{bmatrix}
+\]
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\[
+\underset{m \times p}{AB} =
+\begin{bmatrix}
+    c_{11} & c_{12} & \dots & c_{1p} \\
+    c_{21} & c_{22} & \dots & c_{2p} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    c_{m1} & c_{m2} & \dots & c_{mp} \\
+\end{bmatrix}
+\]
+\end{minipage}
+
+donde 
+ $$
+\begin{aligned}
+c_{ij} & = \sum_{k=1}^{n} a_{ik}b_{kj} \\
+       & = a_{i1}b_{1j} + a_{i2}b_{2j} + a_{i3}b_{3j} + \dots + a_{in}b_{nj}
+\end{aligned}
+$$
+\textbf{Propiedades de la multiplicación de matrices:}
+
+\begin{enumerate}
+\item \textbf{Asociativa:} $(A \cdot B) \cdot C = A \cdot (B \cdot C)$ para matrices adecuadamente dimensionadas.
+\item \textbf{Distributiva respecto a la suma:} $A \cdot (B + C) = A \cdot B + A \cdot C$ y $(A + B) \cdot C = A \cdot C + B \cdot C$ para matrices adecuadamente dimensionadas.
+\item \textbf{Producto por el elemento identidad:} $I \cdot A = A \cdot I = A$ donde $I$ es la matriz identidad.
+\item \textbf{No conmutativa:} En general, $A \cdot B \neq B \cdot A$ para matrices $A$ y $B$ de diferentes dimensiones.
+\item \textbf{Propiedad escalable:} $(cA) \cdot B = A \cdot (cB) = c(A \cdot B)$ para una constante escalar $c$ y matrices adecuadamente dimensionadas.
+\end{enumerate}
+
+
+\begin{example}
+\text{Sean las matrices}
+$$\begin{aligned}
+& \boldsymbol{A}=\left(\begin{array}{ll}
+1 & 2 \\
+3 & 4
+\end{array}\right) \,\,\text{y}\,\,\, \boldsymbol{B}=\left(\begin{array}{ll}
+5 & 6 \\
+7 & 8
+\end{array}\right)\\    
+\end{aligned}$$
+entonces el producto $\boldsymbol{AB}$ está dado por:
+ $$
+\begin{aligned}
+& \boldsymbol{AB}=\left(\begin{array}{ll}
+1 & 2 \\
+3 & 4
+\end{array}\right) \left(\begin{array}{ll}
+5 & 6 \\
+7 & 8
+\end{array}\right)=\left(\begin{array}{ll}
+1 \cdot 5+2 \cdot 7 & 1 \cdot 6+2 \cdot 8 \\
+3 \cdot 5+4 \cdot 7 & 3 \cdot 6+4 \cdot 8
+\end{array}\right)=\left(\begin{array}{ll}
+19 & 22 \\
+43 & 50
+\end{array}\right) \\
+\end{aligned}
+$$ 
+\end{example}
+
+\begin{example}
+Sean 
+$$\begin{aligned}
+  & \boldsymbol{B}=\left(\begin{array}{ll}
+5 & 6 \\
+7 & 8
+\end{array}\right)\,\,\textbf{y}\,\,\,\boldsymbol{A}=\left(\begin{array}{ll}
+1 & 2 \\
+3 & 4
+\end{array}\right)
+\end{aligned}$$ dos matrices de $2\times2$,
+el producto $\boldsymbol{BA}$ está dado por:
+$$\begin{aligned}
+\boldsymbol{BA}=\left(\begin{array}{ll}
+23 & 34 \\
+31 & 46
+\end{array}\right) \\
+\end{aligned}$$
+\end{example}
+\begin{example}
+Sean $\boldsymbol{C}$ y $\boldsymbol{D}$ matrices de $3\times2$ y $2\times4$ respectivamente
+$$ 
+\begin{aligned}
+& \boldsymbol{C}=\left(\begin{array}{cc}
+1 & 0 \\
+0 & 2 \\
+-1 & 1
+\end{array}\right) \,\,\,\text{y}\,\,\,\,\boldsymbol{D}=\left(\begin{array}{cccc}
+0 & 1 & 2 & 3 \\
+0 & -1 & 1 & 0
+\end{array}\right)
+\end{aligned}$$
+el producto $\boldsymbol{CD}$ está dado por:
+$$\begin{aligned}
+\boldsymbol{CD}=\left(\begin{array}{cccc}
+0 & 1 & 2 & 3 \\
+0 & -2 & 2 & 0 \\
+0 & -2 & -1 & -3
+\end{array}\right) \\
+&      
+\end{aligned}$$
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+Multiplica las siguientes matrices:
+\[ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \quad \text{y} \quad B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix} \]
+\end{exercise}
+\begin{exercise}
+Dadas las matrices:
+\[ C = \begin{pmatrix} 2 & 3 & 1 \\ 1 & 0 & -2 \end{pmatrix} \quad \text{y} \quad D = \begin{pmatrix} -1 & 2 \\ 3 & 4 \\ 0 & 1 \end{pmatrix} \]
+calcula el producto \( C \times D \)    
+\end{exercise}
+\begin{exercise}
+Sean las matrices:
+\[ E = \begin{pmatrix} 1 & 0 & 1 \\ 2 & -1 & 3 \end{pmatrix} \quad \text{y} \quad F = \begin{pmatrix} 0 & 1 \\ -1 & 2 \\ 3 & 0 \end{pmatrix} \]
+determina \( E \cdot F \).
+
+\end{exercise}
+\subsection{Práctica con R}
+ Para una matriz $A$ de $2\times 3$ y una matriz $B$ de
+$3\times2$, se tiene una matriz $C$ de $2\times2$.
+
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Definición de matrices
+A <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, byrow = TRUE)
+B <- matrix(c(7, 8, 9, 10, 11, 12), nrow = 2, byrow = TRUE)
+
+# Multiplicación de matrices
+C <- A %*% B
+
+# Resultado
+print(C)
+
+\end{verbatim}
+
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Definición de matrices
+A <- matrix(c(1, 2, 3, 4), nrow = 2, byrow = TRUE)
+B <- matrix(c(5, 6, 7, 8), nrow = 2, byrow = TRUE)
+
+# Multiplicación de matrices
+C <- A %*% B
+
+# Resultado
+print(C)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{verbatim}
+\begin{verbatim}
+# Crea las matrices con fracciones
+A <- matrix(c(1/2, 2/3, 3/4, 4/5, 5/6, 6/7, 7/8, 8/9, 9/10), nrow = 3,
+byrow = TRUE)
+B <- matrix(c(1/3, 2/5, 3/7, 4/9, 5/11, 6/13, 7/15, 8/17, 9/19),nrow = 3, 
+byrow = TRUE)
+
+# Multiplica las matrices
+C <- A %*% B
+
+# Muestra el resultado
+print(C)    
+\end{verbatim}
+\subsection{Multiplicación de matrices por un escalar.}
+\begin{definition}
+Si $A=(a_{ij})$ es una matriz de $m\times n$ y si $\alpha$ es un escalar, entonces la matriz $m\times n$, $\alpha$A, 
+está dada por:\\
+$$
+\alpha A=\left(\alpha a_{i j}\right)=\left(\begin{array}{cccc}
+\alpha a_{11} & \alpha a_{12} & \cdots & \alpha a_{1 n} \\
+\alpha a_{21} & \alpha a_{22} & \cdots & \alpha a_{2 n} \\
+\vdots & \vdots & & \vdots \\
+\alpha a_{m 1} & \alpha a_{m 2} & \cdots & \alpha a_{m n}
+\end{array}\right)
+$$
+
+Esto es $\alpha A=\left(\alpha a_{i j}\right)$ es la matriz obtenida al multiplicar cada componente de $A$ por $\alpha$. Si $\alpha A=B=\left(b_{i j}\right)$, entonces $b_{i j}=\alpha a_{i j}$ para $i=1,2, \ldots, m$ y $j=1,2, \ldots, n$.
+\end{definition}
+
+%Multiplicación de una matriz por un escalar: Si $A= {a_{ij}}$ es una
+%matriz de tamaño $m\times n$ y $c$ es un escalar, entonces la
+%multiplicación del escalar $c$ y la matriz $A$
+\begin{example}
+Sea $A=\left(\begin{array}{rrrr}1 & -3 & 4 & 2 \\ 3 & 1 & 4 & 6 \\ -2 & 3 & 5 & 7\end{array}\right)$. Entonces $2 A=\left(\begin{array}{rrrr}2 & -6 & 8 & 4 \\ 6 & 2 & 8 & 12 \\ -4 & 6 & 10 & 14\end{array}\right)$
+\end{example}
+\begin{example}
+    $$
+-\frac{1}{3} A = \left( \begin{array}{rrrr}
+-\frac{1}{3} & 1 & -\frac{4}{3} & -\frac{2}{3} \\
+-1 & -\frac{1}{3} & -\frac{4}{3} & -2 \\
+\frac{2}{3} & -1 & -\frac{5}{3} & -\frac{7}{3} 
+\end{array}\right) \quad \text { y } \quad 0 A=\left(\begin{array}{llll}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right)
+$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{example}
+\begin{exercise}
+Multiplica la matriz \( A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} \) por el escalar \( \frac{1}{2} \)
+\end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+ Dada la matriz \( B = \begin{pmatrix} 2 & -1 & 3 \\ 0 & 4 & -2 \\ 1 & 2 & 0 \end{pmatrix} \), calcula \( \frac{3}{4}B \)   
+\end{exercise}
+\begin{exercise}
+ Multiplica la matriz \( C = \begin{pmatrix} -1 & 0 & 2 \\ 3 & -2 & 1 \\ 4 & 1 & -3 \end{pmatrix} \) por el escalar \( \frac{2}{5} \)   
+\end{exercise}
+\subsection{Práctica con R}
+La multiplicación de una matriz $A$ por el escalar $c$: $$cA$$
+
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ A <- matrix(c(3, 1, 3, 2, 2, 0, 1, 4, 1),
+                  nrow = 3,
+                  byrow = TRUE)
+# Definir el escalar c
+c <- 3
+cA <- c*A
+cA
+\end{verbatim}
+
+
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Cálculo de $$cA-B$$
+A <- matrix(c(3, 9, 6, 6, 0, 3, 12, 3, 6),
+                   nrow = 3, 
+                   byrow = TRUE)
+                   A
+# Definir la matriz B con las mismas dimensiones que A
+       B <- matrix(c(2, 1, 1, 0, 4, 3, 0, 3, 2),
+        nrow = 3,
+        byrow = TRUE)
+       B
+Resultados:
+      c<-3
+      cA <- c*A
+      # Calcular la diferencia 3A - B
+      D <- cA - B
+      D    
+\end{verbatim}
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ # Crea la matriz con elementos en fracción
+A <- matrix(c(1/2, 2/3, 3/4, 4/5, 5/6, 6/7, 7/8, 8/9, 9/10), 
+nrow = 3, byrow = TRUE)
+
+# Define el escalar fraccionario
+escalar <- 3/4
+
+# Realiza la multiplicación del escalar por la matriz
+resultado <- escalar * A
+
+# Muestra el resultado
+print(resultado)   
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Descomposición espectral}
+
+\begin{definition}[Descomposición espectral]
+Dado $A$ una matriz simétrica de $k\times k$. Entonces $A$ puede ser expresada en términos de sus $k$ parejas de eigenvalores-eigenvectores $(\lambda_{i},\textbf{e}_{i})$: 
+$$
+A=\sum_{i=1}^{k}\lambda_{i}\textbf{e}_{i}\textbf{e}'_{i}
+$$
+\end{definition}
+
+Obsérvese que las $\lambda_i$ son constantes y los $\textbf{e}_{i}$ son vectores de longitud $k$.
+
+\subsection{Resolución de problemas}
+
+\textcolor{red}{AGregar ejemplos}
+
+\subsection{Práctica con r}
+
+\textit{eigen(A)}: Valores y vectores propios.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Descomposición en valores singulares}
+
+%---------------------------------------------
+\subsection{Resolución de problemas}
+
+%-------------------------------------------
+\textcolor{red}{AGregar ejemplos}
+
+%---------------------------------------------
+\subsection{Práctica con r}
+
+\textit{svd(A)}: Descomposición en valores singulares de $A$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Descomposición QR}
+
+  
+%-----------------------------------------
+\subsection{Resolución de problemas}
+
+\textcolor{red}{AGregar ejemplos}
+
+%----------------------------------------
+\subsection{Práctica con r}
+
+\textit{qr(A)}: Descomposición QR de $A$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Solución de sistemas de ecuaciones}
+
+
+%---------------------------------------------
+\subsection{Práctica con r}
+
+ \textit{solve(A,b)}: Solución del sistema de ecuaciones $Ax=b$.
+
+Ejemplo: Dada la matriz 
+$$
+A=\left(
+\begin{matrix}
+2 & 3 & 5\\ 
+0 & 0 & 1\\
+1 & 0 & 1
+\end{matrix}
+\right) 
+$$
+
+\begin{lstlisting}[language=R]
+      A<-matrix(c(2,0,1,3,0,0,5,1,1),3,3) # capturar la matriz por columnas
+
+      t(A) # traspuesta de A
+
+      diag(A) # diagonal de A
+
+      solve(A) # inversa de A
+
+      eigen(A) # eigenvalores y eigenvectores
+\end{lstlisting}
+
+Ejemplo: Resolver el sistema: 
+$$
+x+y=7 
+$$
+$$
+x-2y=1
+$$
+
+\begin{lstlisting}[language=R]
+      A<-matrix(c(1,1,1,-2),2,2)
+
+      b<-c(7,1)
+      solve(A,b)
+\end{lstlisting}
+
+luego, se tiene que $x=5$ y $y=2$
+
